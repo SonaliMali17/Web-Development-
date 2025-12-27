@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy New Year 2026</title>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(270deg, #ff512f, #dd2476, #1fa2ff, #12d8fa);
+        background-size: 800% 800%;
+        animation: bgMove 10s infinite alternate;
+        font-family: 'Segoe UI', sans-serif;
+        overflow: hidden;
+        text-align: center;
+    }
+
+    @keyframes bgMove {
+        0% { background-position: 0% 50%; }
+        100% { background-position: 100% 50%; }
+    }
+
+    .card {
+        padding: 30px;
+        background: rgba(255,255,255,0.15);
+        border-radius: 20px;
+        backdrop-filter: blur(8px);
+        box-shadow: 0 0 30px rgba(255,255,255,0.4);
+        animation: zoomIn 2s ease;
+        max-width: 90%;
+    }
+
+    @keyframes zoomIn {
+        from { transform: scale(0.5); opacity: 0; }
+        to { transform: scale(1); opacity: 1; }
+    }
+
+    h1 {
+        font-size: 2.5rem;
+        color: #ffd700;
+        animation: glow 2s infinite alternate;
+    }
+
+    @keyframes glow {
+        from { text-shadow: 0 0 10px gold; }
+        to { text-shadow: 0 0 25px white; }
+    }
+
+    .year {
+        font-size: 4rem;
+        font-weight: bold;
+        color: #00ffcc;
+        margin: 10px 0;
+        animation: bounce 1.5s infinite;
+    }
+
+    @keyframes bounce {
+        0%,100% { transform: translateY(0); }
+        50% { transform: translateY(-15px); }
+    }
+
+    p {
+        font-size: 1.2rem;
+        color: #fff;
+        margin-top: 10px;
+    }
+
+    button {
+        margin-top: 20px;
+        padding: 12px 25px;
+        font-size: 1rem;
+        border: none;
+        border-radius: 30px;
+        background: #ffd700;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    button:hover {
+        background: #fff;
+        transform: scale(1.1);
+    }
+
+    /* Firework dots */
+    .spark {
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        background: white;
+        border-radius: 50%;
+        animation: spark 1s linear forwards;
+    }
+
+    @keyframes spark {
+        from { opacity: 1; transform: scale(1); }
+        to { opacity: 0; transform: scale(3); }
+    }
+
+    /* Mobile friendly */
+    @media (max-width: 600px) {
+        h1 { font-size: 2rem; }
+        .year { font-size: 3rem; }
+        p { font-size: 1rem; }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <h1>🎉 Happy New Year 🎉</h1>
+    <div class="year">2026</div>
+    <p>May your life shine with success, happiness & growth 🚀</p>
+    <button onclick="fireworks()">Celebrate 🎆</button>
+</div>
+
+<script>
+function fireworks() {
+    for (let i = 0; i < 30; i++) {
+        let spark = document.createElement("div");
+        spark.className = "spark";
+        document.body.appendChild(spark);
+
+        spark.style.left = Math.random() * window.innerWidth + "px";
+        spark.style.top = Math.random() * window.innerHeight + "px";
+        spark.style.background = 
+            "hsl(" + Math.random() * 360 + ",100%,60%)";
+
+        setTimeout(() => spark.remove(), 1000);
+    }
+}
+</script>
+
+</body>
+</html>
